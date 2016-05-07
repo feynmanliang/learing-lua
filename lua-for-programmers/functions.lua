@@ -1,11 +1,25 @@
 -- vim:set et sw=2 ts=4:
 
--- functions have call by value semantics
-function f(a) a = 5  end
+-- parameter passing semantics
+function f(a)
+  if type(a) == "number" then
+    a = 5
+  elseif type(a) == "table" then
+    a[1] = 5
+  else
+    print("Error! Unsupported type: " .. type(a))
+  end
+end
 a = 10
 print(a) -- 10
-f(a)
+f(a) -- a is an atomic value, so passed by value
 print(a) -- 10
+
+t = {} -- t is an object (table), so passed by reference
+print(t[1]) -- nil
+f(t)
+print(t[1]) -- 5
+
 
 -- table syntax for functions with table arguments
 function foo(t)
