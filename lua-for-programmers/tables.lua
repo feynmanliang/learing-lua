@@ -16,7 +16,6 @@ end
 -- "#" is for arrays and only counts up to first nil index
 t = {[1]=1, [2]=2, [5]=5}
 print(#t) -- 3, NOT 5
--- print(table.getn(t)) -- TODO: replace with table.getn equivalent in Lua 5.1
 
 
 -- Can use optional "order function" in `table.sort`
