@@ -17,6 +17,12 @@ print(a,b)
 a, b = (string.find(s, p))
 print(a,b)
 
+-- `unpack` implements "splat" operator, e.g. generic function calls
+function add(x,y,z)
+    return x+y+z
+end
+print(add(unpack{1,2,3}))
+
 -- Can use varargs to define `select` for selecting which return value
 -- NOTE: this is provided by Lua stdlib
 function select(i, ...)
